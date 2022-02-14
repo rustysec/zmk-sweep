@@ -46,9 +46,14 @@
 #define BSLH_SHFT   &mt LSHFT BSLH
 #define FSLH_SHFT   &mt LSHFT FSLH
 
+&kscan0 {
+    debounce-period  = <10>;
+};
+
 &mt {
     flavor = "tap-preferred";
     tapping_term_ms = <185>;
+	retro-tap;
 };
 
 / { 
@@ -63,13 +68,13 @@
         };
 
         combo_tab {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <12 13>;
             bindings = <&kp TAB>;
         };
 
         combo_ret {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <17 18>;
             bindings = <&kp RET>;
         };
