@@ -106,7 +106,7 @@
 		bindings = <
             &kp N1      &kp N2      &kp N3      &kp N4      &kp N5  				&kp N6      &kp N7      &kp N8      &kp N9      &kp N0  
             &trans      &trans      &trans      &trans      &trans 			        &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   SQT_ALT
-            &trans      &trans      &trans      &trans      &trans                  &kp MINUS   &kp EQUAL   &trans      &trans      BSLH_SHFT
+            &trans      &trans      &trans      &trans      &trans                  &kp MINUS   &kp EQUAL   &trans      &bt BT_CLR  BSLH_SHFT
                                                 ADJUST      &trans  				&trans      &none 
 		>;
 		};	
