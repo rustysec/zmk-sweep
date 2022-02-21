@@ -47,7 +47,7 @@
 #define FSLH_SHFT   &mt RSHFT FSLH
 
 &kscan0 {
-    debounce-period  = <10>;
+    debounce-period  = <12>;
 };
 
 &mt {
@@ -96,7 +96,7 @@
        		lower {
 		bindings = <
             &kp N1      &kp N2      &kp N3      &kp N4      &kp N5  				&kp N6      &kp N7      &kp N8      &kp N9      &kp N0  
-            &kp GRAVE   VOL_D       VOL_D       &none       &kp LBRC                &trans      &trans      &trans      &trans      SQT_ALT
+            &kp GRAVE   VOL_D       VOL_U       &none       &kp LBRC                &trans      &trans      &trans      &trans      SQT_ALT
             &trans      &bt BT_CLR  &trans      &trans      &kp C_PP                &kp MINUS   &kp EQUAL   &trans      &trans      BSLH_SHFT
                                                 &none       &trans  				&trans      ADJUST 
 		>;
