@@ -42,7 +42,7 @@
 #define ENT_MED     &lt _MEDIA  ENTER
 #define V_NAV       &lt _NAV    V
 #define M_MED       &lt _MEDIA  M
-#define FUNCTION    &mt _FUN
+#define FUNCTION    &mo _FUN
 
 #define PB          &kp PAUSE_BREAK
 
