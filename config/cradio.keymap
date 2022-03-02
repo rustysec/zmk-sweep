@@ -36,8 +36,8 @@
 
 #define SPC_SFT     &hm LSHFT SPC
 #define SEMI_SYM    &lt _SYMBOL SEMI
-#define W_NUM       &lt _NUMBER W
-#define F_SYM       &lt _SYMBOL F
+#define F_NUM       &lt _NUMBER F
+#define P_SYM       &lt _SYMBOL P
 #define ESC_NAV     &lt _NAV    ESC
 #define ENT_MED     &lt _MEDIA  ENTER
 #define V_NAV       &lt _NAV    V
@@ -129,7 +129,7 @@
 		colemak_layer {
             label = "COLEMAK";
 			bindings = <
-                &kp Q       W_NUM     F_SYM     &kp P      &kp G                &kp J       &kp L     &kp U         &kp Y       &kp SEMI
+                &kp Q       &kp W     F_NUM     P_SYM      &kp G                &kp J       &kp L     &kp U         &kp Y       &kp SEMI
                 A_GUI       R_ALT     S_CTRL    T_SHFT     &kp D                &kp H       N_SHFT    E_CTRL        I_ALT       O_GUI
                 &kp Z       &kp X     &kp C     V_NAV      &kp B                &kp K       M_MED     &kp COMMA     &kp DOT     &kp FSLH
                                                 ESC_NAV    &kp BSPC             SPC_SFT     ENT_MED
