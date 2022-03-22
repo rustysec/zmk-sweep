@@ -39,6 +39,7 @@
 #define Q_NUM       &lt _NUMBER Q
 #define D_NUM       &lt _NUMBER D
 #define W_SYM       &lt _SYMBOL W
+#define B_SYM       &lt _SYMBOL B
 #define ESC_NAV     &lt _NAV    ESC
 #define ENT_MED     &lt _MEDIA  ENTER
 #define V_NAV       &lt _NAV    V
@@ -132,7 +133,7 @@
 			bindings = <
                 Q_NUM       W_SYM     &kp F     &kp P      &kp G                &kp J       &kp L     &kp U         &kp Y       &kp SEMI
                 A_GUI       R_ALT     S_CTRL    T_SHFT     D_NUM                &kp H       N_SHFT    E_CTRL        I_ALT       O_GUI
-                &kp Z       &kp X     &kp C     V_NAV      &kp B                &kp K       M_MED     &kp COMMA     &kp DOT     &kp FSLH
+                &kp Z       &kp X     &kp C     V_NAV      B_SYM                &kp K       M_MED     &kp COMMA     &kp DOT     &kp FSLH
                                                 ESC_NAV    &kp BSPC             SPC_SFT     ENT_MED
 			>;
 		};
