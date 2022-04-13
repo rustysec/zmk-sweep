@@ -30,7 +30,7 @@
 #define SPC_SHFT    &hm LSHFT SPC
 #define ESC_LOW     &lt _LOWER ESC
 #define RET_RSE     &lt _RAISE RET
-#define BSLH_SHFT   &sm LSHFT BSLH
+#define BSLH_SHFT   &hm LSHFT BSLH
 
 #define A_GUI       &hm LGUI  A
 #define R_ALT       &hm LALT  R
