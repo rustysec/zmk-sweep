@@ -132,7 +132,7 @@
             Q_NUM       W_SYM       &kp F       &kp P       &kp G 				    &kp J       &kp L       &kp U       &kp Y       &kp SEMI
             A_GUI       R_ALT       S_CTRL      T_SHFT      D_LOW 			        H_RSE       N_SHFT      E_CTRL      I_ALT       O_GUI
             &kp Z       &kp X       &kp C       V_RSE       &kp B                   &kp K       M_LOW       &kp COMMA   &kp DOT     &kp SLASH
-                                                ESC_LOW     &kp BSPC  				SPC_SHFT    RET_RSE 
+                                                ESC_LOW     &kp BSPC  				SPC_SHFT    ENT_RSE 
 		>;
 		};
 
