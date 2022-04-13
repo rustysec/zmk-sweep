@@ -29,7 +29,7 @@
 
 #define SPC_SHFT    &hm LSHFT SPC
 #define ESC_LOW     &lt _LOWER ESC
-#define ENT_RSE     &lt _RAISE RET
+#define RET_RSE     &lt _RAISE RET
 #define BSLH_SHFT   &sm LSHFT BSLH
 
 #define A_GUI       &hm LGUI  A
@@ -132,7 +132,7 @@
             Q_NUM       W_SYM       &kp F       &kp P       &kp G 				    &kp J       &kp L       &kp U       &kp Y       &kp SEMI
             A_GUI       R_ALT       S_CTRL      T_SHFT      D_LOW 			        H_RSE       N_SHFT      E_CTRL      I_ALT       O_GUI
             &kp Z       &kp X       &kp C       V_RSE       &kp B                   &kp K       M_LOW       &kp COMMA   &kp DOT     &kp SLASH
-                                                ESC_LOW     &kp BSPC  				SPC_SHFT    ENT_RSE 
+                                                ESC_LOW     &kp BSPC  				SPC_SHFT    RET_RSE 
 		>;
 		};
 
@@ -169,7 +169,7 @@
             &none       &none       &none       &none       &none                   &kp MINUS   &kp N7      &kp N8      &kp N9      &kp EQUAL 
             &none       &none       &none       &none       &none 			        &kp PLUS    &kp N4      &kp N5      &kp N6      &kp SLASH
             &none       &none       &none       &none       &none                   &kp STAR    &kp N1      &kp N2      &kp N3      &kp DOT
-                                                &none       &none  				    &kp N0      &kp ENT 
+                                                &none       &none  				    &kp N0      &kp RET 
 		>;
 		};	
 
