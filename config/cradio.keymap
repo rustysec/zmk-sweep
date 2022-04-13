@@ -15,36 +15,39 @@
 #define             _NUMPAD  4
 #define             _SYMBOL  5
 
-#define COLEMAK     &mo _COLEMAK
-#define LOWER       &mo _LOWER
-#define RAISE       &mo _RAISE
-#define ADJUST      &mo _ADJUST
-#define NUMPAD      &mo _NUMPAD
-#define SYMBOL      &mo _SYMBOL
-
-#define ESC_LOW     &lt _LOWER ESC
-#define RET_RSE     &lt _RAISE RET
-#define T_RSE       &lt _RAISE T
-#define M_RSE       &lt _RAISE M
-#define V_LOW       &lt _LOWER V
-#define N_LOW       &lt _LOWER N
-#define I_SYM       &lt _SYMBOL I
-#define R_NUM       &lt _NUMPAD R
-
 #define VOL_U       &kp C_VOL_UP
 #define VOL_D       &kp C_VOL_DN
 
-#define Q_CTL       &mt LCTL Q
-#define SEMI_CTL    &mt LCTL SEMI
-#define S_GUI       &mt LGUI S
-#define E_GUI       &mt LGUI E
+#define BT0         &bt BT_SEL 0
+#define BT1         &bt BT_SEL 1
+#define BT2         &bt BT_SEL 2
+#define BT3         &bt BT_SEL 3
 
-#define A_ALT       &mt LALT A
-#define O_ALT       &mt LALT O
-#define SQT_ALT     &mt LALT SQT
+#define ADJUST      &mo _ADJUST
+#define LOWER       &mo _LOWER
+#define RAISE       &mo _RAISE
 
-#define BSLH_SHFT   &mt RSHFT BSLH
-#define FSLH_SHFT   &mt RSHFT FSLH
+#define SPC_SHFT    &hm LSHFT SPC
+#define ESC_LOW     &lt _LOWER ESC
+#define ENT_RSE     &lt _RAISE RET
+#define BSLH_SHFT   &sm LSHFT BSLH
+
+#define A_GUI       &hm LGUI  A
+#define R_ALT       &hm LALT  R
+#define S_CTRL      &hm LCTRL S
+#define T_SHFT      &hm LSHFT T
+
+#define N_SHFT      &hm LSHFT N
+#define E_CTRL      &hm LCTRL E
+#define I_ALT       &hm LALT  I
+#define O_GUI       &hm LGUI  O
+
+#define W_SYM       &lt _SYMBOL W
+#define Q_NUM       &lt _NUMPAD Q
+#define M_LOW       &lt _LOWER  M
+#define D_LOW       &lt _LOWER  D
+#define V_RSE       &lt _RAISE  V
+#define H_RSE       &lt _RAISE  H
 
 &kscan0 {
     debounce-period  = <12>;
@@ -56,48 +59,88 @@
 	retro-tap;
 };
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS BACKSPACE>;
+};
+
 / { 
 
-    combos {
-        compatible = "zmk,combos";
+        combos {
+            compatible = "zmk,combos";
 
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
-            bindings = <&kp ESC>;
-        };
+            combo_esc {
+                timeout-ms = <50>;
+                key-positions = <11 12>;
+                bindings = <&kp ESC>;
+            };
 
-        combo_tab {
-            timeout-ms = <20>;
-            key-positions = <12 13>;
-            bindings = <&kp TAB>;
-        };
+            combo_tab {
+                timeout-ms = <20>;
+                key-positions = <12 13>;
+                bindings = <&kp TAB>;
+            };
 
-        combo_ret {
-            timeout-ms = <20>;
-            key-positions = <17 18>;
-            bindings = <&kp RET>;
+            combo_ret {
+                timeout-ms = <20>;
+                key-positions = <17 18>;
+                bindings = <&kp RET>;
+            };
+            
+            combo_caps_word {
+                timeout-ms = <20>;
+                //               C  V
+                key-positions = <22 23>;
+                bindings = <&caps_word>;
+                layers = <0 1 2 3 4 5>;
+            };
+
+            combo_lbrc {
+                timeout-ms = <20>;
+                //               T  D
+                key-positions = <13 14>;
+                bindings = <&kp LBRC>;
+                layers = <0 1 2 3 4 5>;
+            };
+
+            combo_rbrc {
+                timeout-ms = <20>;
+                //               T  D
+                key-positions = <15 16>;
+                bindings = <&kp LBRC>;
+                layers = <0 1 2 3 4 5>;
+            };
+            
         };
-        
-    };
+    
+        behaviors {
+            hm: homerow_mods {
+                compatible = "zmk,behavior-hold-tap";
+                label = "HOMEROW_MODS";
+                #binding-cells = <2>;
+                tapping-term-ms = <220>;
+                quick-tap-ms = <0>;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&kp>;
+            };
+        };
 
         keymap {
             compatible = "zmk,keymap";
                 
        		default_layer {
 		bindings = <
-            Q_CTL       &kp W       &kp F       &kp P       &kp G 				    &kp J       &kp L       &kp U       &kp Y       SEMI_CTL 
-            A_ALT       R_NUM       S_GUI       T_RSE       &kp D 			        &kp H       N_LOW       E_GUI       I_SYM       O_ALT
-            &mt LSFT Z  &kp X       &kp C       V_LOW       &kp B                   &kp K       M_RSE       &kp COMMA   &kp DOT     FSLH_SHFT
-                                                ESC_LOW     &kp BSPC  				&kp SPC     RET_RSE 
+            Q_NUM       W_SYM       &kp F       &kp P       &kp G 				    &kp J       &kp L       &kp U       &kp Y       &kp SEMI
+            A_GUI       R_ALT       S_CTRL      T_SHFT      D_LOW 			        H_RSE       N_SHFT      E_CTRL      I_ALT       O_GUI
+            &kp Z       &kp X       &kp C       V_RSE       &kp B                   &kp K       M_LOW       &kp COMMA   &kp DOT     &kp SLASH
+                                                ESC_LOW     &kp BSPC  				SPC_SHFT    RET_RSE 
 		>;
 		};
 
        		lower {
 		bindings = <
             &kp N1      &kp N2      &kp N3      &kp N4      &kp N5  				&kp N6      &kp N7      &kp N8      &kp N9      &kp N0  
-            &kp GRAVE   VOL_D       VOL_U       &none       &kp LBRC                &trans      &trans      &trans      &trans      SQT_ALT
-            &trans      &bt BT_CLR  &trans      &trans      &kp C_PP                &kp MINUS   &kp EQUAL   &trans      &trans      BSLH_SHFT
+            &kp GRAVE   VOL_D       VOL_U       &none       &kp LBRC                &kp LBRC    &kp RBRC    &kp RBKT    &kp LBKT    &kp SQT
+            &kp LSHFT   &trans      &trans      &trans      &kp C_PP                &kp MINUS   &kp EQUAL   &trans      &trans      BSLH_SHFT
                                                 &none       &trans  				&trans      ADJUST 
 		>;
 		};
@@ -105,15 +148,15 @@
 		raise {
 		bindings = <
             &kp N1      &kp N2      &kp N3      &kp N4      &kp N5  				&kp N6      &kp N7      &kp N8      &kp N9      &kp N0  
-            &trans      &trans      &trans      &trans      &trans 			        &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   SQT_ALT
-            &trans      &trans      &trans      &trans      &trans                  &kp MINUS   &kp EQUAL   &trans      &bt BT_CLR  BSLH_SHFT
+            &trans      &trans      &trans      &trans      &kp LBRC 			    &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   SQT_ALT
+            &trans      &trans      &trans      &kp LGUI    &trans                  &kp MINUS   &kp EQUAL   &trans      &bt BT_CLR  BSLH_SHFT
                                                 ADJUST      &trans  				&trans      &none 
 		>;
 		};	
 		
 		adjust {
 		bindings = <
-            &none       &none       &none       &none       &none 				    &none       &none       &none       &none       &none 
+            BT0         BT1         BT2         BT3         &bt BT_CLR 				&none       &none       &none       &none       &none 
             &none       &none       &none       &none       &none 			        &none       &none       &none       &none       &none
             &none       &none       &none       &none       &none                   &none       &none       &none       &none       &none
                                                 &none       &none  				    &none       &none 
@@ -123,18 +166,18 @@
 		
 		numpad {
 		bindings = <
-            &none       &none       &none       &none       &none 				    &none       &kp N7      &kp N8      &kp N9      &none 
-            &none       &none       &none       &none       &none 			        &none       &kp N4      &kp N5      &kp N6      &kp DOT
-            &none       &none       &none       &none       &none                   &none       &kp N1      &kp N2      &kp N3      &none
-                                                &none       &none  				    &kp N0      &none 
+            &none       &none       &none       &none       &none                   &kp MINUS   &kp N7      &kp N8      &kp N9      &kp EQUAL 
+            &none       &none       &none       &none       &none 			        &kp PLUS    &kp N4      &kp N5      &kp N6      &kp SLASH
+            &none       &none       &none       &none       &none                   &kp STAR    &kp N1      &kp N2      &kp N3      &kp DOT
+                                                &none       &none  				    &kp N0      &kp ENT 
 		>;
 		};	
 
 		symbol {
 		bindings = <
-            &none       &none       &kp LBKT    &kp RBKT    &none 				    &none       &none       &none       &none       &none 
-            &kp LPAR    &kp RPAR    &kp LBRC    &kp RBRC    &none 			        &none       &none       &none       &none       &none
-            &none       &kp MINUS   &kp EQUAL   &kp PLUS    &none                   &none       &none       &none       &none       &none
+            &none       &none       &none       &none       &none 				    &none       &kp LBKT    &kb RBKT    &kp LPAR    &kp RPAR
+            &none       &none       &none       &none       &none 			        &none       &kp LBRC    &kp RBRC    &none       &kp DQT
+            &none       &none       &none       &none       &none                   &none       &kp EXCL    &kp EQL     &kp AMPS    &none
                                                 &none       &none  				    &none       &none 
 		>;
 		};	
